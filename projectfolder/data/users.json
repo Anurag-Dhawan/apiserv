@@ -1,0 +1,26 @@
+{
+  "1": {
+    "name": "user 1",
+    "password": "password1",
+    "profession": "fd",
+    "id": 1
+  },
+  "2": {
+    "name": "user 2",
+    "password": "password3",
+    "profession": "bd",
+    "id": 2
+  },
+  "3": {
+    "name": "user 3",
+    "password": "password2",
+    "profession": "lol",
+    "id": 6
+  },
+  "1635924406707": {
+    "name": "user 4",
+    "password": "password9",
+    "profession": "loooll",
+    "id": 8
+  }
+}
