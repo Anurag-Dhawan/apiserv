@@ -1,23 +1,19 @@
-// load up the express framework and body-parser helper
 const express = require('express');
 const bodyParser = require('body-parser');
-
-// create an instance of express to serve our end points
+// create express app
 const app = express();
+// Setup server port
+const port = process.env.PORT || 5000;
 
-// we'll load up node's built in file system helper library here
-// (we'll be using this later to serve our JSON files
-const fs = require('fs');
-
-// configure our express instance with some body-parser settings
-// including handling JSON data
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// this is where we'll handle our various routes from
-const routes = require('./projectfolder/routes/routes.js')(app, fs);
-
-// finally, launch our server on port 3001.
-const server = app.listen(3001, () => {
-  console.log('listening on port %s...', server.address().port);
+app.use(bodyParser.json())
+// define a root route
+app.get('/', (req, res) => {
+  res.send("Hello World");
+});
+// Require employee routes
+const employeeRoutes = require('./projectfolder/routes/users.routes')
+app.use('/api/v1/employees', employeeRoutes)
+// listen for requests
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });
